@@ -1,0 +1,1 @@
+# 06-roboshop-jenkins-shared-library
