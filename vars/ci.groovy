@@ -37,3 +37,11 @@ def call() {
     }
 }
 
+/* Jenkins File
+@Library('roboshop') _
+
+ci()
+
+ci.call()
+
+ */

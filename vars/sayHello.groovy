@@ -4,3 +4,10 @@ def call(String name = 'human') {
     // Scripted Pipeline
     echo "Hello, ${name}."
 }
+
+
+/* Jenkins File
+
+sayHello 'Joe'
+sayHello() /* invoke with default arguments - No need to pass value takes default value*/
+ */

@@ -11,3 +11,15 @@ def call(String message = 'human') {
     // Scripted Pipeline
     echo "Hello, ${message}."
 }
+
+/*
+
+@Library('roboshop') _
+
+log.info 'Starting'
+log.info('Starting')
+log.warning 'Nothing to do!'
+
+log()
+log('Hello')
+ */
