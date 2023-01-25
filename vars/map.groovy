@@ -1,7 +1,7 @@
 // vars/buildPlugin.groovy
 def call(Map config) {
     echo "Map function"
-    echo "${config.name}""
+    echo "${config.name}"
 }
 
 /*
