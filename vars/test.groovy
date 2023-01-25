@@ -1,4 +1,4 @@
-def call() {
+def testgroovyfun() {
     def abc = "hello"
     def xyz = 10
 
