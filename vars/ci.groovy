@@ -1,5 +1,7 @@
 def call() {
-
+    if(!env.SONAR_EXTRA_OPTS) {
+        env.SONAR_EXTRA_OPTS = " "
+    }
     try {
         node('workstation') {
 
@@ -23,7 +25,7 @@ def call() {
                     println "Password= ${SONAR_PASS}"
                     sh "echo sh Password= ${SONAR_PASS}"
                     //sh "sonar-scanner -Dsonar.host.url=http://172.31.11.33:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=${component}"
-                    sh "sonar-scanner -Dsonar.host.url=http://172.31.10.140:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=${component}"
+                    sh "sonar-scanner -Dsonar.host.url=http://172.31.10.140:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=${component} ${SONAR_EXTRA_OPTS}"
                 }
             }
 
