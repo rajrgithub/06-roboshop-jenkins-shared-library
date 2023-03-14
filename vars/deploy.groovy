@@ -2,7 +2,9 @@ def call() {
 
   pipeline {
 
-    agent any
+    agent {
+      label 'workstation'
+    }
 
     parameters {
       string(name: 'APP_ENV', defaultValue: '', description: 'Enter Env like dev or prod')
