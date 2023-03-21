@@ -6,6 +6,8 @@ def compile() {
     if (app_lang == "maven") {
         sh "mvn clean compile"
     }
+
+    sh "docker build -t 973130779128.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME} . "
 }
 
 def unittests() {
@@ -32,6 +34,11 @@ def email(email_note) {
 }
 
 def artifactPush() {
+
+    sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 973130779128.dkr.ecr.us-east-1.amazonaws.com"
+    sh "docker push 973130779128.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}"
+
+/*
     sh "echo ${TAG_NAME} >VERSION"
 
     if (app_lang == "nodejs") {
@@ -51,5 +58,5 @@ def artifactPush() {
     wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${NEXUS_PASS}", var: 'SECRET']]]) {
         sh "curl -v -u ${NEXUS_USER}:${NEXUS_PASS} --upload-file ${component}-${TAG_NAME}.zip http://172.31.10.74:8081/repository/${component}/${component}-${TAG_NAME}.zip"
     }
-
+*/
 }
